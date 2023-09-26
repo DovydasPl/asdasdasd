@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method='post'>
+        {% csrf_token %}
+        <h2>Ar tikrai norite istrinti knyga {{ taken_book.id }} ?</h2>
+        <button type='submit'>Istrinti</button>
+        <a href="{% url 'my-book' taken_book.id %}">Grizti</a>
+    </form>
+{% endblock content %}

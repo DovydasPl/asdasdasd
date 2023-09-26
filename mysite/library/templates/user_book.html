@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Mano paimta knyga:</h1>
+    <ul>
+        <li>Pavadinimas: {{ taken_book.book.title }}</li>
+        <li>Grazinti knyga iki: {{ taken_book.due_back }}</li>
+        <a href="{% url 'my-book-delete' taken_book.id %}">Istrinti</a>
+    </ul>
+{% endblock content %}

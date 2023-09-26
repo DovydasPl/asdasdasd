@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Mano paimtos knygos</h1>
+    {% if taken_books %}
+        {% for taken_book in taken_books %} 
+            <p class='{% if taken_book.is_overdue %} text-danger {% endif %}'><a href="{% url 'my-book' pk=taken_book.id%}">{{ taken_book.book.title }}</a></p>
+        {% endfor %}
+    {% else %}
+        <p>Siuo metu knygu nesate pasieme!</p>
+    {% endif %}
+{% endblock content %}

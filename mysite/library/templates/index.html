@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>Library</h1>
+<ul>
+    {% for profile in profiliai %}
+        {% if profile.is_overdue %}
+            {% if profile.days_remaining < 1 %}
+                <li>Userio {{ profile.user.username }} patvirtinimas baigesi galioti. Reikia patvirtinti is naujo</li>
+            {% else %}
+                <li>Userio {{ profile.user.username }} patvirtinimas baigiasi galioti. Liko tik {{ profile.days_remaining }}. Reikia patvirtinti is naujo</li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</ul>
+<ul>
+    <li>Knygu skaicius: {{ knygu_skaicius }}</li>
+    <li>Knygu kopiju skaicius: {{ knygu_kopiju_skaicius }}</li>
+    <li>Autoriu skaicius: {{ autoriu_skaicius }}</li>
+    <li>Galimu paimti knygu kopiju skaicius: {{ galimu_paimti_knygu_kopiju_skaicius }}</li>
+    <li>Apsilankymu skaicius: {{ num_visits }} </li>
+    {# vienos eilutes komentaras #}
+    
+    {% comment 'paaiskinimas' %}
+        keliu
+        eiluciu
+        komentaras
+    {% endcomment %}
+</ul>
+{% endblock content %} 
